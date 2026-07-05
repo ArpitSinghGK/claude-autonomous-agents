@@ -10,8 +10,6 @@
 
 This repo is for the engineer who lives in agent development — not workflow automation. There's no Zapier/n8n/Make anywhere here. Every loop is hand-built on the **Claude API / Claude Agent SDK** primitives: multi-step reasoning, tool use, planning, reflection, memory, and self-correction, with the agent loop architected explicitly rather than assembled from no-code blocks.
 
-It deliberately shows **variety within one domain**: the same shared core (`ClaudeClient`, `ToolRegistry`, memory stores, `BaseAgent`) powers five distinct autonomous strategies, so you can see both idiomatic loop engineering and a feel for when each pattern is the right tool.
-
 ## The five loops
 
 | Loop | Pattern | What it demonstrates |
