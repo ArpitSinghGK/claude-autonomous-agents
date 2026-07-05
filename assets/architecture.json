@@ -1,0 +1,28 @@
+{
+  "title": "Autonomous Agent Loop Architecture",
+  "theme": "dark",
+  "nodes": [
+    {"id": "goal",      "label": "Goal /\nTask",          "col": 0, "row": 1, "color": "#94a3b8"},
+    {"id": "controller","label": "Loop\nController",       "col": 1, "row": 1, "color": "#38bdf8"},
+    {"id": "planner",   "label": "Plan\n(Claude)",         "col": 2, "row": 0, "color": "#a78bfa"},
+    {"id": "reason",    "label": "Reason\n(Claude)",       "col": 2, "row": 1, "color": "#a78bfa"},
+    {"id": "memory",    "label": "Memory\nStore",          "col": 2, "row": 2, "color": "#facc15"},
+    {"id": "tools",     "label": "Tool\nRegistry",         "col": 3, "row": 1, "color": "#f97316"},
+    {"id": "observe",   "label": "Observe",                "col": 4, "row": 1, "color": "#34d399"},
+    {"id": "reflect",   "label": "Reflect /\nSelf-Correct","col": 5, "row": 0, "color": "#f472b6"},
+    {"id": "result",    "label": "Result",                 "col": 5, "row": 2, "color": "#4ade80"}
+  ],
+  "edges": [
+    {"from": "goal",       "to": "controller", "label": "task"},
+    {"from": "controller", "to": "planner",    "label": "decompose"},
+    {"from": "controller", "to": "reason",     "label": "step"},
+    {"from": "planner",    "to": "reason",     "label": "plan"},
+    {"from": "memory",     "to": "reason",     "label": "recall"},
+    {"from": "reason",     "to": "tools",      "label": "act"},
+    {"from": "tools",      "to": "observe",    "label": "result"},
+    {"from": "observe",    "to": "memory",     "label": "store"},
+    {"from": "observe",    "to": "reflect",    "label": "evaluate"},
+    {"from": "reflect",    "to": "controller", "label": "retry"},
+    {"from": "reflect",    "to": "result",     "label": "done"}
+  ]
+}

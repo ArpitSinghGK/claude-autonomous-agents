@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "claude-autonomous-agents"
+version = "0.1.0"
+description = "Custom autonomous agent loops on Claude — ReAct, plan-and-execute, reflexion, memory, and multi-agent orchestration, built from scratch."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Arpit Singh" }]
+keywords = ["claude", "anthropic", "agents", "agent-loop", "react", "reflexion", "llm"]
+dependencies = [
+    "anthropic>=0.40",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.6",
+]
+
+[project.scripts]
+claude-agents = "claude_agents.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

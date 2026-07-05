@@ -1,0 +1,3 @@
+# Runtime dependency. Dev extras (pytest, ruff) live in pyproject's [dev] group:
+#   pip install -e ".[dev]"
+anthropic>=0.40
